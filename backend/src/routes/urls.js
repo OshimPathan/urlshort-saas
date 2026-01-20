@@ -74,7 +74,7 @@ router.get('/:id/qr', async (req, res) => {
   try {
     const url = await Url.findOne({ _id: req.params.id, owner: req.user.id });
     if (!url) return res.status(404).json({ error: 'Not found' });
-    const shortUrl = `${process.env.SHORT_DOMAIN || process.env.BACKEND_URL || 'http://localhost:4001'}/r/${url.shortId}`;
+    const shortUrl = `${process.env.SHORT_DOMAIN || process.env.BACKEND_URL || 'http://localhost:4000'}/r/${url.shortId}`;
     const qr = await QRCode.toDataURL(shortUrl);
     res.json({ qr });
   } catch (e) {

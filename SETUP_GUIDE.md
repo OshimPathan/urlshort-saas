@@ -58,17 +58,17 @@ npm install
 
 ### Step 2: Configure Environment Variables
 
-Edit `.env` file in the root directory:
+Create `.env` in the root directory (used by Docker and as a reference), then copy it to `backend/.env`. For the frontend, create `frontend/.env` with Vite variables.
 
 ```bash
 # Backend Configuration
-PORT=4001
-BACKEND_URL=http://localhost:4001
+PORT=4000
+BACKEND_URL=http://localhost:4000
 MONGODB_URI=mongodb://localhost:27017/urlshort
 JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
-CORS_ORIGIN=http://localhost:5174
-FRONTEND_URL=http://localhost:5174
-SHORT_DOMAIN=http://localhost:4001
+CORS_ORIGIN=http://localhost:5173
+FRONTEND_URL=http://localhost:5173
+SHORT_DOMAIN=http://localhost:4000
 
 # Stripe (Get from https://dashboard.stripe.com)
 STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
@@ -97,6 +97,12 @@ LINKEDIN_CLIENT_ID=your_linkedin_client_id
 LINKEDIN_CLIENT_SECRET=your_linkedin_client_secret
 ```
 
+**Frontend env (`frontend/.env`):**
+```bash
+VITE_API_URL=http://localhost:4000
+VITE_SOCKET_URL=http://localhost:4000
+```
+
 ---
 
 ## 🔧 OAuth Setup Guide
@@ -106,34 +112,34 @@ LINKEDIN_CLIENT_SECRET=your_linkedin_client_secret
 2. Create a new project
 3. Enable Google+ API
 4. Create OAuth 2.0 credentials
-5. Add authorized redirect URI: `http://localhost:4001/api/auth/google/callback`
+5. Add authorized redirect URI: `http://localhost:4000/api/auth/google/callback`
 6. Copy Client ID and Secret to `.env`
 
 ### GitHub OAuth
 1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
 2. Click "New OAuth App"
-3. Set callback URL: `http://localhost:4001/api/auth/github/callback`
+3. Set callback URL: `http://localhost:4000/api/auth/github/callback`
 4. Copy Client ID and Secret to `.env`
 
 ### Facebook OAuth
 1. Go to [Facebook Developers](https://developers.facebook.com)
 2. Create a new app
 3. Add Facebook Login product
-4. Set redirect URI: `http://localhost:4001/api/auth/facebook/callback`
+4. Set redirect URI: `http://localhost:4000/api/auth/facebook/callback`
 5. Copy App ID and Secret to `.env`
 
 ### Twitter OAuth
 1. Go to [Twitter Developer Portal](https://developer.twitter.com)
 2. Create a new app
 3. Enable OAuth 1.0a
-4. Set callback URL: `http://localhost:4001/api/auth/twitter/callback`
+4. Set callback URL: `http://localhost:4000/api/auth/twitter/callback`
 5. Copy API Key and Secret to `.env`
 
 ### LinkedIn OAuth
 1. Go to [LinkedIn Developers](https://www.linkedin.com/developers)
 2. Create a new app
 3. Add Sign In with LinkedIn product
-4. Set redirect URL: `http://localhost:4001/api/auth/linkedin/callback`
+4. Set redirect URL: `http://localhost:4000/api/auth/linkedin/callback`
 5. Copy Client ID and Secret to `.env`
 
 ---
@@ -162,7 +168,7 @@ brew install stripe/stripe-cli/stripe
 stripe login
 
 # Forward webhooks to local
-stripe listen --forward-to localhost:4001/webhooks/stripe
+stripe listen --forward-to localhost:4000/webhooks/stripe
 
 # Copy webhook secret to .env
 ```
@@ -256,11 +262,11 @@ docker-compose up
 
 ### Port Already in Use
 ```bash
-# Kill process on port 4001
-kill -9 $(lsof -ti:4001)
+# Kill process on port 4000
+kill -9 $(lsof -ti:4000)
 
-# Kill process on port 5174
-kill -9 $(lsof -ti:5174)
+# Kill process on port 5173
+kill -9 $(lsof -ti:5173)
 ```
 
 ### MongoDB Connection Error

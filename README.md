@@ -10,8 +10,8 @@
 > **A full-stack SaaS platform for URL shortening with enterprise-grade features, built with modern technologies and best practices.**
 
 ## 🌟 **Live Demo**
-- **Frontend**: [Demo Link](http://localhost:5174) 
-- **API Documentation**: [API Docs](http://localhost:4001/health)
+- **Frontend**: [Demo Link](http://localhost:5173) 
+- **API Documentation**: [API Docs](http://localhost:4000/health)
 - **Features**: URL shortening, analytics, payments, multi-language support
 
 ---
@@ -138,10 +138,18 @@ npm install
 
 # Configure environment variables
 cp .env.example .env
-# Edit .env with your configuration
+cp .env.example backend/.env
+
+# Frontend Vite env
+cat <<EOF > frontend/.env
+VITE_API_URL=http://localhost:4000
+VITE_SOCKET_URL=http://localhost:4000
+EOF
+
+# Edit .env and backend/.env with your configuration
 
 # Start MongoDB (if using local)
-mongod
+brew services start mongodb-community
 
 # Start backend server
 cd ../backend
@@ -153,9 +161,9 @@ npm run dev
 ```
 
 ### **Access the Application**
-- **Frontend**: http://localhost:5174
-- **Backend API**: http://localhost:4001
-- **Health Check**: http://localhost:4001/health
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:4000
+- **Health Check**: http://localhost:4000/health
 
 ---
 

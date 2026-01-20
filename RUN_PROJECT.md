@@ -4,17 +4,17 @@
 
 ### Terminal 1 - Backend
 ```bash
-cd /Users/oseempathan/CascadeProjects/urlshort-saas/backend
+cd /Users/oseempathan/Developer/urlshort-saas/backend
 npm run dev
 ```
-✅ Backend will run on **http://localhost:4001**
+✅ Backend will run on **http://localhost:4000**
 
 ### Terminal 2 - Frontend
 ```bash
-cd /Users/oseempathan/CascadeProjects/urlshort-saas/frontend
+cd /Users/oseempathan/Developer/urlshort-saas/frontend
 npm run dev
 ```
-✅ Frontend will run on **http://localhost:5175**
+✅ Frontend will run on **http://localhost:5173**
 
 ---
 
@@ -47,11 +47,11 @@ The backend handles:
 
 ### Port Already in Use
 ```bash
-# Kill process on port 4001
-kill -9 $(lsof -ti:4001)
+# Kill process on port 4000
+kill -9 $(lsof -ti:4000)
 
-# Kill process on port 5175
-kill -9 $(lsof -ti:5175)
+# Kill process on port 5173
+kill -9 $(lsof -ti:5173)
 ```
 
 ### Backend Won't Start
@@ -64,11 +64,11 @@ kill -9 $(lsof -ti:5175)
 ## ✅ Verification Steps
 
 1. **Backend Running:**
-   - Open http://localhost:4001/health
+   - Open http://localhost:4000/health
    - Should see: `{"ok":true}`
 
 2. **Frontend Running:**
-   - Open http://localhost:5175
+   - Open http://localhost:5173
    - Should see landing page
 
 3. **Test URL Shortener:**
@@ -85,8 +85,8 @@ kill -9 $(lsof -ti:5175)
 
 ## 📋 Current Configuration
 
-- **Backend:** http://localhost:4001
-- **Frontend:** http://localhost:5175
+- **Backend:** http://localhost:4000
+- **Frontend:** http://localhost:5173
 - **MongoDB:** mongodb://localhost:27017/urlshort
 
 ---

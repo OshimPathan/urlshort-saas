@@ -7,14 +7,14 @@ export default function UrlTable({ urls, onDelete, onQR }) {
   };
 
   const testRedirect = (shortId) => {
-    const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:4001';
+    const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:4000';
     const shortUrl = `${backendUrl}/r/${shortId}`;
     window.open(shortUrl, '_blank');
   };
 
   const shortUrl = (shortId) => {
     // Use the backend URL for redirects
-    const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:4001';
+    const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:4000';
     return `${backendUrl}/r/${shortId}`;
   };
 

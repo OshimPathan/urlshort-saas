@@ -2,7 +2,7 @@ import React from 'react';
 import { Chrome, Github, Twitter, Facebook, Linkedin } from 'lucide-react';
 
 export default function SocialLogin() {
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4001';
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
   const socialProviders = [
     { name: 'Google', icon: <Chrome className="w-5 h-5" />, color: 'bg-red-500 hover:bg-red-600', provider: 'google' },

@@ -24,7 +24,7 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4001'}/api/auth/google/callback`
+        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4000'}/api/auth/google/callback`
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
@@ -58,7 +58,7 @@ if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
       {
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4001'}/api/auth/github/callback`
+        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4000'}/api/auth/github/callback`
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
@@ -93,7 +93,7 @@ if (process.env.FACEBOOK_APP_ID && process.env.FACEBOOK_APP_SECRET) {
       {
         clientID: process.env.FACEBOOK_APP_ID,
         clientSecret: process.env.FACEBOOK_APP_SECRET,
-        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4001'}/api/auth/facebook/callback`,
+        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4000'}/api/auth/facebook/callback`,
         profileFields: ['id', 'emails', 'name']
       },
       async (accessToken, refreshToken, profile, done) => {
@@ -129,7 +129,7 @@ if (process.env.TWITTER_CONSUMER_KEY && process.env.TWITTER_CONSUMER_SECRET) {
       {
         consumerKey: process.env.TWITTER_CONSUMER_KEY,
         consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4001'}/api/auth/twitter/callback`,
+        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4000'}/api/auth/twitter/callback`,
         includeEmail: true
       },
       async (token, tokenSecret, profile, done) => {
@@ -165,7 +165,7 @@ if (process.env.LINKEDIN_CLIENT_ID && process.env.LINKEDIN_CLIENT_SECRET) {
       {
         clientID: process.env.LINKEDIN_CLIENT_ID,
         clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
-        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4001'}/api/auth/linkedin/callback`,
+        callbackURL: `${process.env.BACKEND_URL || 'http://localhost:4000'}/api/auth/linkedin/callback`,
         scope: ['r_emailaddress', 'r_liteprofile']
       },
       async (accessToken, refreshToken, profile, done) => {

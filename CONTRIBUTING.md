@@ -136,7 +136,7 @@ When suggesting features:
 ## 📚 Development Resources
 
 ### API Documentation
-- Backend API: `http://localhost:4001/health`
+- Backend API: `http://localhost:4000/health`
 - Authentication endpoints: `/api/auth/*`
 - URL management: `/api/urls/*`
 - Analytics: `/api/analytics/*`
