@@ -6,16 +6,21 @@ export default function UrlTable({ urls, onDelete, onQR }) {
     navigator.clipboard.writeText(text);
   };
 
+  // In production, use same origin. In dev, use VITE_API_URL
+  const getBaseUrl = () => {
+    if (import.meta.env.PROD) {
+      return window.location.origin;
+    }
+    return import.meta.env.VITE_API_URL || 'http://localhost:4000';
+  };
+
   const testRedirect = (shortId) => {
-    const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:4000';
-    const shortUrl = `${backendUrl}/r/${shortId}`;
+    const shortUrl = `${getBaseUrl()}/r/${shortId}`;
     window.open(shortUrl, '_blank');
   };
 
   const shortUrl = (shortId) => {
-    // Use the backend URL for redirects
-    const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:4000';
-    return `${backendUrl}/r/${shortId}`;
+    return `${getBaseUrl()}/r/${shortId}`;
   };
 
   return (

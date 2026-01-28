@@ -2,28 +2,30 @@
   "version": 2,
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
-  "builds": [
-    {
-      "src": "backend/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "backend/**",
-        "excludeFiles": "backend/node_modules/**"
-      }
-    }
-  ],
+  "installCommand": "npm install && cd frontend && npm install",
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/server.js"
+      "dest": "/api/$1"
     },
     {
-      "src": "/socket.io/(.*)",
-      "dest": "/backend/server.js"
+      "src": "/r/(.*)",
+      "dest": "/api/r/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/frontend/dist/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
     }
   ]
 }
